@@ -1,15 +1,15 @@
-from flask import Flask,render_template,redirect
-import datetime
+from flask import Flask,render_template,request,redirect
 
 app=Flask(__name__)
 
-@app.route("/dashboard")
-def dashboard():
-    name="Sridhar"
-    notification= 8
-    mail=10
-    return render_template("dashboard.html",name_temp=name,notification_temp=notification,mail_temp=mail)
+@app.route("/inputpage")
+def input():
+    return render_template("inputpage.html")
 
-
+@app.route("/statuspage",methods=["GET"])
+def status():
+    status=request.args.get('textinput')
+    return render_template("statuspage.html",status=status)
+    
 if __name__=="__main__":
     app.run()
