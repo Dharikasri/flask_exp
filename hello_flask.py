@@ -1,14 +1,23 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,redirect
+import datetime
 
 app=Flask(__name__)
 
-@app.route("/pageone")
-def one():
-    return render_template("firstpage.html")
+@app.route("/frontpage")
+def frntpage():
+    return render_template("frontpage.html")
 
-@app.route("/pagetwo")
-def two():
-    return render_template("secondpage.html")
+@app.route("/resultpage")
+def respage():
+    return render_template("resultpage.html")
+    
+@app.route("/printtime")
+def printtime():
+
+    print()
+    print(datetime.datetime.now())
+    print()
+    return redirect("/resultpage")
 
 
 if __name__=="__main__":
