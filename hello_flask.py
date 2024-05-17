@@ -3,21 +3,12 @@ import datetime
 
 app=Flask(__name__)
 
-@app.route("/frontpage")
-def frntpage():
-    return render_template("frontpage.html")
-
-@app.route("/resultpage")
-def respage():
-    return render_template("resultpage.html")
-    
-@app.route("/printtime")
-def printtime():
-
-    print()
-    print(datetime.datetime.now())
-    print()
-    return redirect("/resultpage")
+@app.route("/dashboard")
+def dashboard():
+    name="Sridhar"
+    notification= 8
+    mail=10
+    return render_template("dashboard.html",name_temp=name,notification_temp=notification,mail_temp=mail)
 
 
 if __name__=="__main__":
